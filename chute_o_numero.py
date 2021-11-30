@@ -10,17 +10,20 @@ class ChuteONumero:
     def Iniciar(self):
         self.GerarNumeroAleatorio()
         self.PedirValorAleatorio()
-        while self.tentar_novamente == True:
-            if int(self.valor_do_chute) > self.valor_aleatorio:
-                print('Chute um valor mais baixo!')
-                self.PedirValorAleatorio()
-            elif int(self.valor_do_chute) < self.valor_aleatorio:
-                print('Chute um valor mais alto!')
-                self.PedirValorAleatorio()
-            if int(self.valor_do_chute) == self.valor_aleatorio:
-                self.tentar_novamente = False
-                print('PARABÉNS VOCÊ ACERTOU!')
-
+        try:
+            while self.tentar_novamente == True:
+                if int(self.valor_do_chute) > self.valor_aleatorio:
+                    print('Chute um valor mais baixo!')
+                    self.PedirValorAleatorio()
+                elif int(self.valor_do_chute) < self.valor_aleatorio:
+                    print('Chute um valor mais alto!')
+                    self.PedirValorAleatorio()
+                if int(self.valor_do_chute) == self.valor_aleatorio:
+                    self.tentar_novamente = False
+                    print('PARABÉNS VOCÊ ACERTOU!')
+        except:
+            print('Favor digitar apenas números!')
+            self.Iniciar()
     def PedirValorAleatorio(self):
         self.valor_do_chute = input('Chute um número: ')
 
